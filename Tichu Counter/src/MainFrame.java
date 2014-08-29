@@ -16,22 +16,21 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.JFormattedTextField;
-
 
 public class MainFrame extends JFrame {
 	private JToggleButton TichuButton1A,GTichuButton2A,TichuButton0A,GTichuButton0A,A12,TichuButton1B,GTichuButton2B,TichuButton0B,GTichuButton0B,B12;
 	private JLabel TeamALabel,TeamBLabel;
 	private JButton GoButton;
-	private JLabel TeamBScore;
-	private JFormattedTextField TeamBText,TeamAText;
+	private JLabel TeamBScore,TeamAScore;
+	private JTextField TeamAText,TeamBText;
 
 	public MainFrame() {
 
 		JLabel mainLabel = new JLabel("TICHU COUNTER");
 		mainLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		mainLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
+		
+		
 		TichuButton1A = new JToggleButton("Tichu");
 
 		GTichuButton2A = new JToggleButton("Grand Tichu");
@@ -62,7 +61,7 @@ public class MainFrame extends JFrame {
 
 		GoButton = new JButton("Calculate");
 		
-		JLabel TeamAScore = new JLabel("0");
+		TeamAScore = new JLabel("0");
 		TeamAScore.setFont(new Font("Tahoma", Font.BOLD, 16));
 		TeamAScore.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -70,43 +69,42 @@ public class MainFrame extends JFrame {
 		TeamBScore.setHorizontalAlignment(SwingConstants.CENTER);
 		TeamBScore.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
-		TeamAText = new JFormattedTextField();
+		TeamBText = new JTextField(10);
 		
-		TeamBText = new JFormattedTextField();
+		TeamAText = new JTextField(10);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+									.addGroup(groupLayout.createSequentialGroup()
+										.addGap(61)
+										.addComponent(TeamALabel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, 183, Short.MAX_VALUE))
+									.addGroup(groupLayout.createSequentialGroup()
+										.addGap(64)
+										.addComponent(TeamAText, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+										.addComponent(GoButton)
+										.addGap(51)))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addContainerGap()
+									.addComponent(TeamAScore, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+									.addGap(193)))
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addContainerGap(72, Short.MAX_VALUE)
-											.addComponent(TeamAText, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-											.addGap(67)
-											.addComponent(GoButton)
-											.addGap(3))
-										.addGroup(groupLayout.createSequentialGroup()
-											.addGap(79)
-											.addComponent(TeamAScore, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)))
-									.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE))
+									.addGap(16)
+									.addComponent(TeamBScore, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(61)
-									.addComponent(TeamALabel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)))
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(TeamBScore, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-										.addGap(41))
-									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(TeamBLabel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-										.addGap(32)))
+									.addGap(9)
+									.addComponent(TeamBLabel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(20)
-									.addComponent(TeamBText, 45, 45, 45))))
+									.addGap(12)
+									.addComponent(TeamBText, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)))
+							.addGap(18))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(38)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -137,60 +135,57 @@ public class MainFrame extends JFrame {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(mainLabel, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(TeamAScore)
-						.addComponent(TeamBScore, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-					.addGap(6)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(41)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(TeamAText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(GoButton, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(TeamBLabel, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-								.addComponent(TeamALabel, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
-							.addGap(19)
-							.addComponent(TeamBText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(29)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(TichuButton1A)
-						.addComponent(TichuButton1B))
-					.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(GTichuButton2B)
-						.addComponent(GTichuButton2A))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(TichuButton0A)
-						.addComponent(TichuButton0B))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(GTichuButton0A)
-						.addComponent(GTichuButton0B))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(A12)
-						.addComponent(B12))
-					.addGap(44))
+								.addComponent(TeamAScore)
+								.addComponent(TeamBScore, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(TeamALabel, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+								.addComponent(TeamBLabel, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(TeamBText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(TeamAText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(29)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(TichuButton1A)
+								.addComponent(TichuButton1B))
+							.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(GTichuButton2B)
+								.addComponent(GTichuButton2A))
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(TichuButton0A)
+								.addComponent(TichuButton0B))
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(GTichuButton0A)
+								.addComponent(GTichuButton0B))
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(A12)
+								.addComponent(B12))
+							.addGap(44))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(84)
+							.addComponent(GoButton, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())))
 		);
-		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {TeamAText, TeamBText});
 		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {TeamAScore, TeamBScore});
 		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {TichuButton1A, GTichuButton2A, TichuButton0A, GTichuButton0A, A12});
 		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {TeamALabel, TeamBLabel});
-		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {TeamAText, TeamBText});
+		groupLayout.linkSize(SwingConstants.VERTICAL, new Component[] {TeamBText, TeamAText});
 		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {TeamAScore, TeamBScore});
 		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {TichuButton1A, GTichuButton2A, TichuButton0A, GTichuButton0A, A12});
 		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {TeamALabel, TeamBLabel});
+		groupLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {TeamBText, TeamAText});
 		getContentPane().setLayout(groupLayout);
 
-		MyDocumentListener mdl = new MyDocumentListener();
-		TeamAText.getDocument().addDocumentListener(mdl);
-		TeamBText.getDocument().addDocumentListener(mdl);
-
+		
 
 		ButtonListener listener = new ButtonListener();
 		ButtonListener2 listener2 = new ButtonListener2();
@@ -205,6 +200,10 @@ public class MainFrame extends JFrame {
 		A12.addActionListener(listener);
 		B12.addActionListener(listener);
 		GoButton.addActionListener(listener2);
+		MyDocumentListener mdl = new MyDocumentListener();
+		MyDocumentListener2 mdl2 = new MyDocumentListener2();
+		TeamAText.getDocument().addDocumentListener(mdl);
+		TeamBText.getDocument().addDocumentListener(mdl2);
 		this.setVisible(true);
 		this.pack();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -301,23 +300,25 @@ public class MainFrame extends JFrame {
 	}
 
 
-	class MyDocumentListener implements DocumentListener {
-		@Override
-		public void changedUpdate(DocumentEvent e) {
+	class MyDocumentListener implements DocumentListener{
 
+		@Override
+		public void changedUpdate(DocumentEvent arg0) {
+			
+			
 		}
 
 		@Override
-		public void insertUpdate(DocumentEvent e) {
+		public void insertUpdate(DocumentEvent arg0) {
 			score();
 		}
 
 		@Override
-		public void removeUpdate(DocumentEvent e) {
-			remove();
-			score();
+		public void removeUpdate(DocumentEvent arg0) {
+		
+			
 		}
-
+		
 		public void score(){
 			if(!TeamAText.getText().equals("")){
 				int x = Integer.parseInt(TeamAText.getText());
@@ -330,11 +331,48 @@ public class MainFrame extends JFrame {
 				}
 			}
 		}
-
 		public void remove(){
-			TeamAText.setText("");
+			
+		}
+		
+	}
+	
+	
+	class MyDocumentListener2 implements DocumentListener{
 
+		@Override
+		public void changedUpdate(DocumentEvent arg0) {
+			
+			
 		}
 
+		@Override
+		public void insertUpdate(DocumentEvent arg0) {
+			score();			
+		}
+
+		@Override
+		public void removeUpdate(DocumentEvent arg0) {
+		
+			
+		}
+		
+		public void score(){
+			if(!TeamBText.getText().equals("")){
+				int x = Integer.parseInt(TeamBText.getText());
+				if(x % 5 == 0 ){
+					String aString = Integer.toString(100-x);
+					TeamAText.setText(aString);
+				}
+				else{
+					remove();
+				}
+			}
+		}
+		
+		public void remove(){
+			
+		}
+				
 	}
 }

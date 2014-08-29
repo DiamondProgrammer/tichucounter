@@ -3,8 +3,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		MainFrame mf = new MainFrame();
-
+		//MainFrame mf = new MainFrame();
+		Temp temp = new Temp();
 	}
 
 }
